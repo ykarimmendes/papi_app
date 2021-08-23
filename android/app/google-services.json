@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "781543315927",
+    "project_id": "papi-323218",
+    "storage_bucket": "papi-323218.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:781543315927:android:24454513c601322846d392",
+        "android_client_info": {
+          "package_name": "br.com.papi_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "781543315927-6ir0cu5dv29qvdlr0i731t796r31h5b9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARlpUBdvNgjDCv3idyYCfbuD8vgIwm7AI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "781543315927-6ir0cu5dv29qvdlr0i731t796r31h5b9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
