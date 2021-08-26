@@ -1,12 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class EnqueteScreen extends StatefulWidget {
-  @override
-  _EnqueteScreenState createState() => _EnqueteScreenState();
-}
+class EnqueteScreen extends StatelessWidget  {
 
-class _EnqueteScreenState extends State<EnqueteScreen> {
   final Color amareloTopo = Color.fromRGBO(250, 180, 24, 1);
   final Color corFundo = Color.fromRGBO(30, 30, 30, 1);
 

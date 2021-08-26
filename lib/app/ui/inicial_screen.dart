@@ -5,22 +5,24 @@ import 'package:papi_app/app/data/api/controller/video_controller.dart';
 import 'package:papi_app/app/data/api/model/video.dart';
 
 class InitialScreen extends StatefulWidget {
+
   @override
   _InitialScreenState createState() => _InitialScreenState();
 }
 
 class _InitialScreenState extends State<InitialScreen> {
   final Color amareloBanner = Color.fromRGBO(254, 203, 9, 1);
-  final Color amareloTopo = Color.fromRGBO(250, 180, 24, 1);
-  final Color corFundo = Color.fromRGBO(30, 30, 30, 1);
-  final Color corFundo2 = Color.fromRGBO(51, 51, 51, 1);
 
-  VideoController controller = new VideoController();
+  final Color amareloTopo = Color.fromRGBO(250, 180, 24, 1);
+
+  final Color corFundo = Color.fromRGBO(30, 30, 30, 1);
+
+  final Color corFundo2 = Color.fromRGBO(51, 51, 51, 1);
 
   @override
   Widget build(BuildContext context) {
     VideoController controller = VideoController();
-
+    controller.getAll();
 
     return Scaffold(
       bottomNavigationBar: getBottomNavigationBar(),
@@ -44,21 +46,20 @@ class _InitialScreenState extends State<InitialScreen> {
             //   width: MediaQuery.of(context).size.width,
             // ),
             buildColuna(),
-            FutureBuilder<QuerySnapshot>(
-                future: controller.getAll(),
+            StreamBuilder<List<Video>>(
+                stream: controller.controller.stream,
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     return ListView.builder(
                       shrinkWrap: true,
                         physics: NeverScrollableScrollPhysics(),
-                        itemCount: snapshot.data.docs.length,
+                        itemCount: snapshot.data.length,
                         itemBuilder: (context, index){
-                          Video v = Video.fromSnapshot(snapshot.data.docs[index]);
-                          return buildVideo(v);
+                          return buildVideo(snapshot.data.elementAt(index));
                         });
 
                   } else {
-                    return Container();
+                    return Text("Load", style: TextStyle(fontSize: 20,color: Colors.white),);
                   }
                 }),
 
